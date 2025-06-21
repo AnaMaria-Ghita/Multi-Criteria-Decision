@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request # pyright: ignore[reportMissingImports]
 import numpy as np
 import pandas as pd
 
@@ -16,7 +16,7 @@ def topsis():
     types = request.form.get('types')
 
     # ----- TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution) -----
-    
+
     rows = matrix.strip().split('\n')
     matrix = np.array([[float(x) for x in row.split(',')] for row in rows])
 
