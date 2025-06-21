@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOPSIS - Analiza decizionala</title>
+    
+</head>
+<body>
+    <h2>Sistem decizional multicriterial</h2>
+
+    <form action="/topsis" method="POST">
+        <label>Matrice decizională (rânduri separate prin Enter, coloane cu virgulă):</label><br>
+        <textarea name="matrix" rows="5" cols="40">
+            25000,6.5,90
+            22000,5.5,80
+            28000,7.0,100
+        </textarea><br><br>
+
+        <label>Ponderi:</label><br>
+        <input name="weights" value="0.4,0.3,0.3"><br><br>
+
+        <label>Tipuri criterii (0 = cost, 1 = beneficiu):</label><br>
+        <input name="types" value="0,0,1"><br><br>
+
+        <button type="submit">Calculează scorul TOPSIS</button>
+    </form>
+
+    {% if scores %}
+    <h3>Rezultate TOPSIS:</h3>
+    <ol>
+        {% for s in scores %}
+            <li>Scor: {{ s }}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</body>
+</html>
