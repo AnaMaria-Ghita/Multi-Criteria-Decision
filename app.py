@@ -10,18 +10,21 @@ def index():
 
 @app.route('/topsis', methods=['POST'])
 def topsis():
-    
-    matrix = request.form.get('matrix')
-    weights = request.form.get('weights') # Ponderi ale criteriilor (suma = 1)
-    types = request.form.get('types')
+
+    nume_criterii = request.form.getlist('criteriu_nume[]')
+    ponderi = list(map(float, request.form.getlist('criteriu_pondere[]')))
+    tipuri = list(map(int, request.form.getlist('criteriu_tip[]')))  # 0 = cost, 1 = beneficiu
+    nume_alternative = request.form.getlist('alternativa_nume[]')
+    valori_criterii = list(map(float, request.form.getlist('valoare_criterii[]')))
+
+    nr_criterii = len(nume_criterii)
+    nr_alternative = len(nume_alternative)
 
     # ----- TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution) -----
 
-    rows = matrix.strip().split('\n')
-    matrix = np.array([[float(x) for x in row.split(',')] for row in rows])
-
-    weights = np.array([float(w) for w in weights.split(',')])
-    types = [int(t) for t in types.split(',')]
+    matrix = np.array(valori_criterii).reshape((nr_alternative, nr_criterii))
+    weights = np.array(ponderi)
+    types = tipuri
     # Tip criteriu: 0 = cost, 1 = beneficiu
     
     # ----- Algoritm -----
@@ -51,7 +54,7 @@ def topsis():
     # Apropierea relativa fata de solutia ideala
     R = d_neg_ideal / (d_poz_ideal + d_neg_ideal)
 
-    return render_template('index.html', scores=R.tolist())
+    return render_template('index.html', scores=R.tolist(), alternative=nume_alternative, zip=zip)
 
 if __name__ == '__main__':
     app.run(debug=True)
