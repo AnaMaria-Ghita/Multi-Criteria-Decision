@@ -2,33 +2,48 @@
 <html>
 <head>
     <title>TOPSIS - Analiza decizionala</title>
-    
+    <style>
+        .section { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
+        .criteriu, .alternativa { margin-bottom: 10px; }
+    </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <h2>Sistem decizional multicriterial</h2>
+ <h2>Sistem decizional multicriterial - TOPSIS</h2>
 
     <form action="/topsis" method="POST">
-        <label>Matrice decizională (rânduri separate prin Enter, coloane cu virgulă):</label><br>
-        <textarea name="matrix" rows="5" cols="40">
-            25000,6.5,90
-            22000,5.5,80
-            28000,7.0,100
-        </textarea><br><br>
+        <div class="section" id="criterii-section">
+            <h3>Criterii</h3>
+            <div class="criteriu">
+                Nume: <input type="text" name="criteriu_nume[]" required>
+                Pondere: <input type="number" name="criteriu_pondere[]" step="0.01" required>
+                Tip:
+                <select name="criteriu_tip[]">
+                    <option value="1">Beneficiu</option>
+                    <option value="0">Cost</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" onclick="adaugaCriteriu()">Adaugă criteriu</button>
 
-        <label>Ponderi:</label><br>
-        <input name="weights" value="0.4,0.3,0.3"><br><br>
+        <div class="section" id="alternative-section">
+            <h3>Alternative</h3>
+            <div class="alternativa">
+                Nume: <input type="text" name="alternativa_nume[]" required><br>
+                <div class="valori_criterii"></div>
+            </div>
+        </div>
+        <button type="button" onclick="adaugaAlternativa()">Adaugă alternativă</button>
 
-        <label>Tipuri criterii (0 = cost, 1 = beneficiu):</label><br>
-        <input name="types" value="0,0,1"><br><br>
-
+        <br><br>
         <button type="submit">Calculează scorul TOPSIS</button>
     </form>
 
     {% if scores %}
     <h3>Rezultate TOPSIS:</h3>
     <ol>
-        {% for s in scores %}
-            <li>Scor: {{ s }}</li>
+        {% for s, alt in zip(scores, alternative) %}
+            <li>{{ alt }} - Scor: {{ s }}</li>
         {% endfor %}
     </ol>
     {% endif %}
