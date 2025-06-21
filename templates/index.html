@@ -39,11 +39,11 @@
         <button type="submit">Calculează scorul TOPSIS</button>
     </form>
 
-    {% if scores %}
+    {% if rezultate %}
     <h3>Rezultate TOPSIS:</h3>
     <ol>
-        {% for s, alt in zip(scores, alternative) %}
-            <li>{{ alt }} - Scor: {{ s }}</li>
+        {% for nume, scor in rezultate %}
+            <li><strong>{{ nume }}</strong> - Scor: {{ "%.4f"|format(scor) }}</li>
         {% endfor %}
     </ol>
     {% endif %}
