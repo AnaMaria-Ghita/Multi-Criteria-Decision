@@ -15,26 +15,22 @@ window.onload = function() {
 
 
 window.adaugaCriteriu = function() {
-    // Creează noul criteriu în secțiunea criterii
     const div = document.createElement('div');
     div.className = 'criteriu';
     div.innerHTML = `Nume: <input type="text" name="criteriu_nume[]" required>
-        Pondere: <input type="number" name="criteriu_pondere[]" step="0.01" required>
+        Pondere: <input type="number" name="criteriu_pondere[]" step="0.1" required>
         Tip: <select name="criteriu_tip[]">
-            <option value="1">Beneficiu</option>
-            <option value="0">Cost</option>
+            <option value="1">MAX</option>
+            <option value="0">MIN</option>
         </select>`;
     document.getElementById('criterii-section').appendChild(div);
 
-    // Numărul curent de criterii după adăugare
     const nrCriterii = document.querySelectorAll('#criterii-section .criteriu').length;
 
-    // Pentru fiecare alternativă existentă, adaugă câte un input nou pentru criteriul nou
     const alternative = document.querySelectorAll('#alternative-section .alternativa');
     alternative.forEach(alt => {
         const valoriDiv = alt.querySelector('.valori_criterii');
         
-        // Creăm label și input pentru criteriul nou
         const labelNou = document.createElement('label');
         labelNou.textContent = `Valoare criteriu ${nrCriterii}: `;
 
@@ -44,7 +40,6 @@ window.adaugaCriteriu = function() {
         inputNou.name = 'valoare_criterii[]';
         inputNou.required = true;
 
-        // Adăugăm elementele în containerul valorilor criteriilor
         valoriDiv.appendChild(labelNou);
         valoriDiv.appendChild(inputNou);
         valoriDiv.appendChild(document.createElement('br'));

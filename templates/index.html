@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
- <h2>Sistem decizional multicriterial - TOPSIS</h2>
+ <h2 class="title">Sistem decizional multicriterial - TOPSIS</h2>
 
-    <form action="/topsis" method="POST">
+    <form action="/topsis" method="POST" class="form">
         <div class="section" id="criterii-section">
             <h3>Criterii</h3>
             <div class="criteriu">
@@ -20,8 +20,8 @@
                 Pondere: <input type="number" name="criteriu_pondere[]" step="0.01" required>
                 Tip:
                 <select name="criteriu_tip[]">
-                    <option value="1">Beneficiu</option>
-                    <option value="0">Cost</option>
+                    <option value="1">MAX</option>
+                    <option value="0">MIN</option>
                 </select>
             </div>
         </div>
@@ -37,19 +37,29 @@
         <button type="button" onclick="adaugaAlternativa()">Adaugă alternativă</button>
 
         <br><br>
-        <button type="submit">Calculează scorul TOPSIS</button>
+        <button type="submit" class="submit">Calculează scorul TOPSIS</button>
     </form>
 
     {% if rezultate %}
-    <h3>Rezultate TOPSIS:</h3>
-    <ol>
-        {% for nume, scor in rezultate %}
-            <li {% if loop.first %} class="first_alt" {% endif %}>
-            <strong>{{ nume }}</strong> — Scor: {{ "%.4f"|format(scor) }}
-            {% if loop.first %}(Varianta optimă){% endif %}
-            </li>
-        {% endfor %}
-    </ol>
-    {% endif %}
+    <div>
+        <h3>Rezultate TOPSIS:</h3>
+        <ol>
+            {% for nume, scor in rezultate %}
+                <li {% if loop.first %} class="first_alt" {% endif %}>
+                <strong>{{ nume }}</strong> — Scor: {{ "%.4f"|format(scor) }}
+                {% if loop.first %}(Varianta optimă){% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+
+        <div class="explicatii">
+            <h3>Algoritm</h3>
+
+            <p>Metoda TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) este o metodă de analiză decizională care ajută la selectarea celei mai bune alternative dintre mai multe opțiuni, pe baza unor criterii multiple.</p>
+            <p>Scorurile pentru fiecare alternativă sunt calculate pe baza criteriilor specificate.</p>
+            <p>Alternativa cu cel mai mare scor este considerată varianta optimă.</p>
+        </div>
+    </div>
 </body>
 </html>
