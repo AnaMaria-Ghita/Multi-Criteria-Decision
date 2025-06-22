@@ -7,6 +7,7 @@
         .criteriu, .alternativa { margin-bottom: 10px; }
     </style>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
  <h2>Sistem decizional multicriterial - TOPSIS</h2>
@@ -39,11 +40,14 @@
         <button type="submit">Calculează scorul TOPSIS</button>
     </form>
 
-    {% if scores %}
+    {% if rezultate %}
     <h3>Rezultate TOPSIS:</h3>
     <ol>
-        {% for s, alt in zip(scores, alternative) %}
-            <li>{{ alt }} - Scor: {{ s }}</li>
+        {% for nume, scor in rezultate %}
+            <li {% if loop.first %} class="first_alt" {% endif %}>
+            <strong>{{ nume }}</strong> — Scor: {{ "%.4f"|format(scor) }}
+            {% if loop.first %}(Varianta optimă){% endif %}
+            </li>
         {% endfor %}
     </ol>
     {% endif %}
