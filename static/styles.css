@@ -2,7 +2,7 @@ body {
     font-family: poppins, sans-serif;
     margin: 1000;
     padding: 1000;
-    background-color: #ffffff93;
+    background-color: #000000;
 }
 
 .form{
@@ -14,7 +14,7 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #647fa7;
+    background-color: #1289A7;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: aliceblue;
@@ -23,8 +23,8 @@ body {
 .title {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+    color: #1289A7;
+    margin-bottom: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,15 +32,26 @@ body {
 }
 
 .first_alt{
-    font-weight: bold;
-    color: green;
-    background-color: #e9ffe9;
-    padding: 8px;
-    border-radius: 5px;
+    width: fit-content;
+    font-weight: 600;
+    color: #065f0e;
+    background-color: #e6ffed;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(80, 200, 120, 0.5),
+                0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.first_alt:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(80, 200, 120, 0.7),
+                0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: default;
 }
 
 button{
-    background-color: #4CAF50;
+    background-color: #006266;
     font-family: poppins, sans-serif;
     max-width:fit-content;
     border: none;
@@ -79,23 +90,49 @@ button{
   transform: scale(1.05) rotate(-1deg);
 }
 
-.explicatii{
-    font-size: 16px;
-    color: #333;
-    margin-top: 10px;
-    text-align: center;
-    line-height: 1.5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    font-family: poppins, sans-serif;
-    font-weight: 500;
+.rezultate{
+    color: #fff;
 }
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  border-radius: 20px;
+  transition: all 0.3s;
+  padding: 5px;
+  margin: 20px auto; 
+}
+
+.card2 {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.card2:hover {
+  transform: scale(0.98);
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+}
+
+.explicatii {
+  font-size: 16px;
+  color: #fff;
+  /*margin-top: 10px;*/
+  text-align: center;
+  /*line-height: 1.5;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*padding: 20px;
+  border-radius: 20px;*/
+  width: 100%;
+  max-width: 600px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+
