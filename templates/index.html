@@ -43,7 +43,7 @@
     {% if rezultate %}
     <div>
         <h3>Rezultate TOPSIS:</h3>
-        <ol>
+        <ol class="rezultate">
             {% for nume, scor in rezultate %}
                 <li {% if loop.first %} class="first_alt" {% endif %}>
                 <strong>{{ nume }}</strong> — Scor: {{ "%.4f"|format(scor) }}
@@ -53,12 +53,16 @@
         </ol>
         {% endif %}
 
-        <div class="explicatii">
-            <h3>Algoritm</h3>
+        <div class="card">
+            <div class="card2">
+                <div class="explicatii">
+                    <h3>Algoritm</h3>
 
-            <p>Metoda TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) este o metodă de analiză decizională care ajută la selectarea celei mai bune alternative dintre mai multe opțiuni, pe baza unor criterii multiple.</p>
-            <p>Scorurile pentru fiecare alternativă sunt calculate pe baza criteriilor specificate.</p>
-            <p>Alternativa cu cel mai mare scor este considerată varianta optimă.</p>
+                    <p>Metoda TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) este o metodă de analiză decizională care ajută la selectarea celei mai bune alternative dintre mai multe opțiuni, pe baza unor criterii multiple.</p>
+                    <p>Scorurile pentru fiecare alternativă sunt calculate pe baza criteriilor specificate.</p>
+                    <p>Alternativa cu cel mai mare scor este considerată varianta optimă.</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
