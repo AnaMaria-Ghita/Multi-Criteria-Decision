@@ -43,7 +43,10 @@
     <h3>Rezultate TOPSIS:</h3>
     <ol>
         {% for nume, scor in rezultate %}
-            <li><strong>{{ nume }}</strong> - Scor: {{ "%.4f"|format(scor) }}</li>
+            <li {% if loop.first %}style="font-weight: bold; color: green;"{% endif %}>
+            <strong>{{ nume }}</strong> — Scor: {{ "%.4f"|format(scor) }}
+            {% if loop.first %}(Varianta optimă){% endif %}
+            </li>
         {% endfor %}
     </ol>
     {% endif %}
