@@ -5,27 +5,27 @@ body {
     background: #2A7B9B;
     background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
 }
-/*
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color: aliceblue;
-    /*background*//*
-    background: rgba(255, 255, 255, 0.16);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+
+
+.title_div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 }
-*/
+.title {
+    font-size: 40px;
+    font-family: "Frijole", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(90deg, #a2f139, #28b14c , #068fb6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    margin-bottom: 80px;
+    width: fit-content;
+}
+
+
 .form {
     display: flex;
     flex-direction: column;
@@ -48,6 +48,30 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.criteriu, .alternativa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.valori_criterii {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .submit {
@@ -62,25 +86,6 @@ body {
 
 .submit:hover {
     background-color: #0c6b86;
-}
-
-
-.title_div{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-}
-.title {
-    font-size: 40px;
-    font-family: "Potta One", system-ui;
-    font-weight: bold;
-    background: linear-gradient(90deg, #92FE9D, #00C9FF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-    margin-bottom: 80px;
-    width: fit-content;
 }
 
 .first_alt{
@@ -158,7 +163,7 @@ button{
 }
 
 .card2 {
-  background-color: #1a1a1a;
+  background-color: #1a1a1ac2;
   border-radius: 20px;
   transition: all 0.2s;
 }
