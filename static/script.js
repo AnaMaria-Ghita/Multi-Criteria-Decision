@@ -23,7 +23,7 @@ window.adaugaCriteriu = function() {
             <option value="1">MAX</option>
             <option value="0">MIN</option>
         </select>`;
-    document.getElementById('criterii-section').appendChild(div);
+    document.getElementById('add-criteriu').appendChild(div);
 
     const nrCriterii = document.querySelectorAll('#criterii-section .criteriu').length;
 
@@ -60,7 +60,7 @@ window.adaugaCriteriu = function() {
                     valoriDiv.innerHTML += `Valoare criteriu ${i+1}: <input type="number" step="any" name="valoare_criterii[]" required><br>`;
                 }
 
-                document.getElementById('alternative-section').appendChild(div);
+                document.getElementById('add-alternativa').appendChild(div);
 
             }
 });
