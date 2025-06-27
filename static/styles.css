@@ -72,12 +72,14 @@ body {
       justify-content: center;
 }
 .title {
-    font-size: 24px;
+    font-size: 40px;
     font-family: "Potta One", system-ui;
     font-weight: bold;
-    color: #1289A7;
+    background: linear-gradient(90deg, #92FE9D, #00C9FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
     margin-bottom: 80px;
-    border-bottom: 3px solid #4a90e2;
     width: fit-content;
 }
 
