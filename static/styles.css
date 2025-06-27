@@ -2,9 +2,10 @@ body {
     font-family: poppins, sans-serif;
     margin: 1000;
     padding: 1000;
-    background-color: #000000;
+    background: #2A7B9B;
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
 }
-
+/*
 .form{
     display: flex;
     flex-direction: column;
@@ -14,21 +15,70 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #1289A7;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: aliceblue;
+    /*background*//*
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+*/
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.form-sections {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.section {
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1289A7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #0c6b86;
+}
+
+
+.title_div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+}
 .title {
     font-size: 24px;
+    font-family: "Potta One", system-ui;
     font-weight: bold;
     color: #1289A7;
     margin-bottom: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    border-bottom: 3px solid #4a90e2;
+    width: fit-content;
 }
 
 .first_alt{
@@ -87,6 +137,7 @@ button{
 
 .submit:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  color: #fff;
   transform: scale(1.05) rotate(-1deg);
 }
 

@@ -8,37 +8,47 @@
     </style>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <link rel="stylesheet" href="static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 </head>
 <body>
- <h2 class="title">Sistem decizional multicriterial - TOPSIS</h2>
+ <h2 class="title_div">
+    <div class="title">Sistem decizional multicriterial - TOPSIS</div>
+</h2>
 
     <form action="/topsis" method="POST" class="form">
-        <div class="section" id="criterii-section">
-            <h3>Criterii</h3>
-            <div class="criteriu">
-                Nume: <input type="text" name="criteriu_nume[]" required>
-                Pondere: <input type="number" name="criteriu_pondere[]" step="0.01" required>
-                Tip:
-                <select name="criteriu_tip[]">
-                    <option value="1">MAX</option>
-                    <option value="0">MIN</option>
-                </select>
-            </div>
-        </div>
-        <button type="button" onclick="adaugaCriteriu()">Adaugă criteriu</button>
 
-        <div class="section" id="alternative-section">
-            <h3>Alternative</h3>
-            <div class="alternativa">
-                Nume: <input type="text" name="alternativa_nume[]" required><br>
-                <div class="valori_criterii"></div>
-            </div>
-        </div>
-        <button type="button" onclick="adaugaAlternativa()">Adaugă alternativă</button>
+  <div class="form-sections">
+    <div class="section" id="criterii-section">
+      <h3>Criterii</h3>
+      <div class="criteriu">
+        Nume: <input type="text" name="criteriu_nume[]" required>
+        Pondere: <input type="number" name="criteriu_pondere[]" step="0.01" required>
+        Tip:
+        <select name="criteriu_tip[]">
+          <option value="1">MAX</option>
+          <option value="0">MIN</option>
+        </select>
+        <div id="add-criteriu"></div>
+      </div>
+      <button type="button" onclick="adaugaCriteriu()">Adaugă criteriu</button>
+    </div>
 
-        <br><br>
-        <button type="submit" class="submit">Calculează scorul TOPSIS</button>
-    </form>
+    <div class="section" id="alternative-section">
+      <h3>Alternative</h3>
+      <div class="alternativa">
+        Nume: <input type="text" name="alternativa_nume[]" required><br>
+        <div class="valori_criterii"></div>
+      </div>
+      <div id="add-alternativa"></div>
+      <button type="button" onclick="adaugaAlternativa()">Adaugă alternativă</button>
+    </div>
+  </div>
+
+  <button type="submit" class="submit">Calculează scorul TOPSIS</button>
+</form>
+
 
     {% if rezultate %}
     <div>
